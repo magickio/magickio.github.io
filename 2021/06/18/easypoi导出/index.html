@@ -10,7 +10,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Hello World | Hexo</title>
+  <title>easypoi导出.md | Hexo</title>
 
   
     
@@ -461,14 +461,14 @@
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/7.jpg" style="background-repeat: no-repeat; background-size: cover; 
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/9.jpg" style="background-repeat: no-repeat; background-size: cover; 
   background-position: center center;position: relative;">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="title-box">
     <span class="title">
-      Hello World
+      easypoi导出.md
     </span>
   </div>
   
@@ -492,19 +492,16 @@
         
       </div>
       <div class="post-content">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h3 id="导出word"><a href="#导出word" class="headerlink" title="导出word"></a>导出word</h3><p>先导入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.afterturn<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>easypoi-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.poi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ooxml-schemas<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 涉密岗位登记导出docx</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@param</span> request</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> vxSecretPersonApply</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RequestMapping(value = &quot;/downloadSecretRank&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">downloadSecretRank</span><span class="params">(HttpServletRequest request, VxSecretPersonApply vxSecretPersonApply)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"> String property = System.getProperty(<span class="string">&quot;user.dir&quot;</span>);</span><br><span class="line"> <span class="comment">// Step.1 组装查询条件查询数据</span></span><br><span class="line"> QueryWrapper&lt;VxSecretPersonApply&gt; queryWrapper = QueryGenerator.initQueryWrapper(vxSecretPersonApply, request.getParameterMap());</span><br><span class="line"> LoginUser sysUser = (LoginUser) SecurityUtils.getSubject().getPrincipal();</span><br><span class="line"></span><br><span class="line"> <span class="comment">//Step.2 获取导出数据</span></span><br><span class="line"> List&lt;VxSecretPersonApply&gt; queryList = vxSecretPersonApplyService.list(queryWrapper);</span><br><span class="line"> <span class="comment">// 过滤选中数据</span></span><br><span class="line"> String selections = request.getParameter(<span class="string">&quot;selections&quot;</span>);</span><br><span class="line"> List&lt;VxSecretPersonApply&gt; vxSecretPersonApplyList = <span class="keyword">new</span> ArrayList&lt;VxSecretPersonApply&gt;();</span><br><span class="line"> <span class="keyword">if</span>(oConvertUtils.isEmpty(selections)) &#123;</span><br><span class="line">    vxSecretPersonApplyList = queryList;</span><br><span class="line"> &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    List&lt;String&gt; selectionList = Arrays.asList(selections.split(<span class="string">&quot;,&quot;</span>));</span><br><span class="line">    vxSecretPersonApplyList = queryList.stream().filter(item -&gt; selectionList.contains(item.getId())).collect(Collectors.toList());</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> List&lt;VxSecretPersonApplyPage&gt; pageList = <span class="keyword">new</span> ArrayList&lt;VxSecretPersonApplyPage&gt;();</span><br><span class="line"> TemplateExportParams params = getTemplateParams(property,<span class="string">&quot;涉密岗位登记表&quot;</span>,<span class="string">&quot;docx&quot;</span>);  <span class="comment">//获取模板</span></span><br><span class="line"> Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line"></span><br><span class="line"> SecretPersonExportXls secretPersonExportXls = <span class="keyword">new</span> SecretPersonExportXls();</span><br><span class="line"> <span class="comment">//构造数据</span></span><br><span class="line"> map = secretPersonExportXls.getSecretRank(vxSecretPersonApplyList, map, sysBaseAPI,secretJobsService);</span><br><span class="line"></span><br><span class="line"> <span class="comment">// Step.4 easyPoi 导出Excel</span></span><br><span class="line"> ModelAndView mv = <span class="keyword">new</span> ModelAndView(<span class="keyword">new</span> EasypoiTemplateWordView());</span><br><span class="line"> mv.addObject(TemplateWordConstants.FILE_NAME, <span class="string">&quot;涉密岗位登记表&quot;</span>);</span><br><span class="line"> mv.addObject(TemplateWordConstants.URL,params.getTemplateUrl());</span><br><span class="line"> mv.addObject(TemplateWordConstants.MAP_DATA,map);</span><br><span class="line"> <span class="keyword">return</span> mv;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 4.导出</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h4 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h4><p>java.lang.NoSuchMethodException: org.openxmlformats.schemas.wordprocessingml.x2006.main.impl.CTPictureBaseImpl错误</p>
+<p>使用poi对office文档进行操作的时候,出现以下异常</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">java.lang.NoSuchMethodException: org.openxmlformats.schemas.wordprocessingml.x2006.main.impl.CTPictureBaseImpl.&lt;init&gt;(org.apache.xmlbeans.SchemaType, boolean)</span><br><span class="line">	at java.lang.Class.getConstructor0(Unknown Source)</span><br><span class="line">	at java.lang.Class.getDeclaredConstructor(Unknown Source)</span><br><span class="line">	at org.apache.xmlbeans.impl.schema.SchemaTypeImpl.getJavaImplConstructor2(SchemaTypeImpl.java:<span class="number">1817</span>)</span><br><span class="line">	at org.apache.xmlbeans.impl.schema.SchemaTypeImpl.createUnattachedSubclass(SchemaTypeImpl.java:<span class="number">1961</span>)</span><br><span class="line">	at org.apache.xmlbeans.impl.schema.SchemaTypeImpl.createUnattachedNode(SchemaTypeImpl.java:<span class="number">1950</span>)</span><br><span class="line">	at org.apache.xmlbeans.impl.schema.SchemaTypeImpl.createElementType(SchemaTypeImpl.java:<span class="number">1051</span>)</span><br><span class="line">	at org.apache.xmlbeans.impl.values.XmlObjectBase.create_element_user(XmlObjectBase.java:<span class="number">938</span>)</span><br><span class="line">	at org.apache.xmlbeans.impl.store.Xobj.getUser(Xobj.java:<span class="number">1675</span>)</span><br><span class="line">	at org.apache.xmlbeans.impl.store.Cur.getUser(Cur.java:<span class="number">2659</span>)</span><br><span class="line">	at org.apache.xmlbeans.impl.store.Cur.getObject(Cur.java:<span class="number">2652</span>)</span><br><span class="line">	at org.apache.xmlbeans.impl.store.Cursor._getObject(Cursor.java:<span class="number">995</span>)</span><br><span class="line">	at org.apache.xmlbeans.impl.store.Cursor.getObject(Cursor.java:<span class="number">2904</span>)</span><br><span class="line">	at org.apache.poi.xwpf.usermodel.XWPFDocument.onDocumentRead(XWPFDocument.java:<span class="number">162</span>)</span><br><span class="line">	at org.apache.poi.POIXMLDocument.load(POIXMLDocument.java:<span class="number">169</span>)</span><br><span class="line">	at org.apache.poi.xwpf.usermodel.XWPFDocument.&lt;init&gt;(XWPFDocument.java:<span class="number">119</span>)</span><br><span class="line">	at search.utils.POI.readWord(POI.java:<span class="number">169</span>)</span><br><span class="line">	at search.service.ThreadManage.executive(ThreadManage.java:<span class="number">115</span>)</span><br><span class="line">	at search.service.ThreadManage.run(ThreadManage.java:<span class="number">214</span>)</span><br><span class="line">	at java.lang.Thread.run(Unknown Source)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>实际在项目中已经引入poi-ooxml-schemas-3.17.jar这个包，但是却一直报找不到类的异常。然后查poi官网资料(<a target="_blank" rel="noopener" href="http://poi.apache.org/faq.html)%E5%BE%97%E7%9F%A5poi%E6%8F%90%E4%BE%9B%E7%9A%84%E9%82%A3%E4%B8%AApoi-ooxml-schemas-3.17.jar%E5%8C%85%E6%98%AF%E7%B2%BE%E7%AE%80%E7%89%88%E7%9A%84%EF%BC%8C%E4%B8%BA%E4%BA%86%E8%8A%82%E7%9C%81%E7%A9%BA%E9%97%B4%EF%BC%8C%E9%87%8C%E9%9D%A2%E6%94%BE%E7%9A%84%E5%8F%AA%E6%9C%89%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E6%A8%A1%E5%9D%97%EF%BC%8C%E6%89%80%E4%BB%A5%E8%A6%81%E5%BC%95%E7%94%A8%E5%8F%A6%E5%A4%96%E4%B8%80%E4%BA%9B%E5%8A%9F%E8%83%BD%E7%9A%84%E8%AF%9D%E5%B0%B1%E9%9C%80%E8%A6%81%E5%BC%95%E7%94%A8%E5%AE%8C%E6%95%B4%E7%89%88%E7%9A%84ooxml-schemas.jar%E5%8C%85%E3%80%82%E5%8F%A6%E5%A4%96%EF%BC%8CPOI">http://poi.apache.org/faq.html)得知poi提供的那个poi-ooxml-schemas-3.17.jar包是精简版的，为了节省空间，里面放的只有一些常用的模块，所以要引用另外一些功能的话就需要引用完整版的ooxml-schemas.jar包。另外，POI</a> 3.14以上版本对应的完整版的jar包是ooxml-schemas-1.3.jar，这样导入之后果然就好了。 </p>
 
       </div>
       
@@ -515,7 +512,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2021/06/18/hello-world/" target="_blank" title="Hello World">http://example.com/2021/06/18/hello-world/</a>
+    <a href="/2021/06/18/easypoi导出/" target="_blank" title="easypoi导出.md">http://example.com/2021/06/18/easypoi导出/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -535,22 +532,39 @@
 
   
   <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/12.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/06/18/Java8%E5%B8%B8%E7%94%A8API/" class="post-nav-link">
+    <a href="/2021/06/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="post-nav-link">
       <div class="title">
         <i class="fa fa-angle-left"></i> Prev:
-        <div>Java8常用API.md</div>
+        <div>我的第一篇博客.md</div>
       </div>
       
       <!-- <div class="content">
-        📘 Lambda表达式1. Lambda 表达式演示一般的匿名类:12345678//Runnable匿名内部类Run
+        设计模式1. 根据目的来分根据模式是用来完成什么工作来划分，这种方式可分为创建型模式、结构型模式和行为型模式 3 种。
+
       </div> -->
     </a>
   </div>
 
 
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/11.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/06/18/mybatis%20plus%20%E6%9D%A1%E4%BB%B6%E6%9E%84%E9%80%A0%E5%99%A8queryWrapper/" class="post-nav-link">
+      <div class="title">
+        Next: <i class="fa fa-angle-right"></i>
+        <div>QueryWrapper常用方法.md</div>
+      </div>
+      <!-- <div class="content">
+        首先奉上mybatis plus的官方文档链接，再看本博客有不清晰的地方，可以查看文档https://mp.baomid
+      </div> -->
+    </a>
+  </div>
 
 </div>
 

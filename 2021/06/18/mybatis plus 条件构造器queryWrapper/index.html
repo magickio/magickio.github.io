@@ -10,7 +10,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Hello World | Hexo</title>
+  <title>QueryWrapper常用方法.md | Hexo</title>
 
   
     
@@ -461,14 +461,14 @@
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/7.jpg" style="background-repeat: no-repeat; background-size: cover; 
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/11.jpg" style="background-repeat: no-repeat; background-size: cover; 
   background-position: center center;position: relative;">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="title-box">
     <span class="title">
-      Hello World
+      QueryWrapper常用方法.md
     </span>
   </div>
   
@@ -492,19 +492,25 @@
         
       </div>
       <div class="post-content">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p>首先奉上mybatis plus的官方文档链接，再看本博客有不清晰的地方，可以查看文档<a target="_blank" rel="noopener" href="https://mp.baomidou.com/guide/">https://mp.baomidou.com/guide/</a></p>
+<h3 id="一、queryWrapper是什么"><a href="#一、queryWrapper是什么" class="headerlink" title="一、queryWrapper是什么"></a>一、queryWrapper是什么</h3><p>queryWrapper是mybatis plus中实现查询的对象封装操作类，他的层级关系如下</p>
+<p><img "" class="lazyload placeholder" data-original="https://img-blog.csdn.net/20181001173726837?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzM3MDM0Mjk0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="å¨è¿éæå¥å¾çæè¿°"></p>
+<p>在上面的图片中，</p>
+<p>Wrapper ： 条件构造抽象类，最顶端父类，抽象类中提供4个方法西面贴源码展示<br>AbstractWrapper ： 用于查询条件封装，生成 sql 的 where 条件<br>AbstractLambdaWrapper ： Lambda 语法使用 Wrapper统一处理解析 lambda 获取 column。<br>LambdaQueryWrapper ：看名称也能明白就是用于Lambda语法使用的查询Wrapper<br>LambdaUpdateWrapper ： Lambda 更新封装Wrapper<br>QueryWrapper ： Entity 对象封装操作类，不是用lambda语法<br>UpdateWrapper ： Update 条件封装，用于Entity对象更新操作</p>
+<h3 id="二、使用demo"><a href="#二、使用demo" class="headerlink" title="二、使用demo"></a>二、使用demo</h3><p>使用的关键的代码<br>QueryWrapper<PbListBlack> sectionQueryWrapper = new QueryWrapper&lt;&gt;();<br>sectionQueryWrapper.eq(“OPTYPE”, 1);<br>sectionQueryWrapper.eq(“BLTYPE”, 1);<br>List<PbListBlack> pbListBlacks = iPbListBlackMapper.selectList(sectionQueryWrapper);<br>上面这段代码的意思就是，首先新建一个QueryWrapper对象，类型为PbListBlack对象，也就是你需要查询的实体数据，</p>
+<p>sectionQueryWrapper.eq(“OPTYPE”, 1);</p>
+<p>sectionQueryWrapper.eq(“BLTYPE”, 1);</p>
+<p>这两句的意思是PbListBlack对象对应的数据库表中的OPTYPE，BLTYPE字段值要为1</p>
+<p>然后调用iPbListBlackMapper.selectList方法，入参就为前面新建好的查询对象封装类</p>
+<p>下面贴上查询实体的代码</p>
+<p>@Data<br>@EqualsAndHashCode(callSuper = false)<br>@Accessors(chain = true)<br>@TableName(“PB_LIST_BLACK”)<br>@ApiModel(value = “PB_LIST_BLACK对象”, description = “”)<br>public class PbListBlack extends Model<PbListBlack> {<br>   @TableField(“ID”)<br>   private Long id;</p>
+<p>   @TableField(“USERID”)<br>   private String userId;<br>   @TableField(“SPGATE”)<br>   private String spgate;<br>   @TableField(“SPNUMBER”)<br>   private String spnumber;<br>   @TableField(“PHONE”)<br>   private Long phone;<br>   @TableField(“OPTYPE”)<br>   private Integer optype;<br>   @TableField(“OPTTIME”)<br>   private Timestamp optTime;<br>   @TableField(“CORPCODE”)<br>   private String corpCode;<br>   @TableField(“SVRTYPE”)<br>   private String svrType;</p>
+<p>   @TableField(“MSG”)<br>   private String msg = “ “;</p>
+<p>   @ApiModelProperty(value = “黑名单类型。1：短信；2：彩信”)<br>   @TableField(“BLTYPE”)<br>   private Integer blType;</p>
+<p>}<br>然后是iPbListBlackMapper的代码‘，代码很简单</p>
+<p>@Repository<br>public interface IPbListBlackMapper extends BaseMapper<PbListBlack> {<br>}<br>仅仅只需要基层BaseMapper接口即可，这样mybatis plus底层封装的方法即可实现帮你查询你设置查询条件查询到的数据</p>
+<p>当你的Mapper 继承BaseMapper接口后，无需编写 mapper.xml 文件，即可获得CRUD功能</p>
+<h3 id="三、QueryWrapper的方法"><a href="#三、QueryWrapper的方法" class="headerlink" title="三、QueryWrapper的方法"></a>三、QueryWrapper的方法</h3><p><img "" class="lazyload placeholder" data-original="https://img-blog.csdn.net/20181001202710403?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzM3MDM0Mjk0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="å¨è¿éæå¥å¾çæè¿°">四、总结<br>上面的博客内容虽然简单，也只展示了一个查询的功能。在你实际使用的时候，可以按照  条件构造器上面包含的的方法，设置你查询数据的条件，调用BaseMapper里相应的方法即可</p>
 
       </div>
       
@@ -515,7 +521,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2021/06/18/hello-world/" target="_blank" title="Hello World">http://example.com/2021/06/18/hello-world/</a>
+    <a href="/2021/06/18/mybatis plus 条件构造器queryWrapper/" target="_blank" title="QueryWrapper常用方法.md">http://example.com/2021/06/18/mybatis plus 条件构造器queryWrapper/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -535,22 +541,39 @@
 
   
   <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/12.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/9.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/06/18/Java8%E5%B8%B8%E7%94%A8API/" class="post-nav-link">
+    <a href="/2021/06/18/easypoi%E5%AF%BC%E5%87%BA/" class="post-nav-link">
       <div class="title">
         <i class="fa fa-angle-left"></i> Prev:
-        <div>Java8常用API.md</div>
+        <div>easypoi导出.md</div>
       </div>
       
       <!-- <div class="content">
-        📘 Lambda表达式1. Lambda 表达式演示一般的匿名类:12345678//Runnable匿名内部类Run
+        导出word先导入依赖
+12345678910&lt;dependency&gt;    &lt;groupId&gt;
       </div> -->
     </a>
   </div>
 
 
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/12.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/2021/06/18/Java8%E5%B8%B8%E7%94%A8API/" class="post-nav-link">
+      <div class="title">
+        Next: <i class="fa fa-angle-right"></i>
+        <div>Java8常用API.md</div>
+      </div>
+      <!-- <div class="content">
+        📘 Lambda表达式1. Lambda 表达式演示一般的匿名类:12345678//Runnable匿名内部类Run
+      </div> -->
+    </a>
+  </div>
 
 </div>
 
