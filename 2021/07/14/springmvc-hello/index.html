@@ -10,7 +10,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Idea创建Maven web.xml版本修改 | Hexo</title>
+  <title>springmvc-hello | Hexo</title>
 
   
     
@@ -625,14 +625,14 @@
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/3.jpg" style="background-repeat: no-repeat; background-size: cover; 
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/10.jpg" style="background-repeat: no-repeat; background-size: cover; 
   background-position: center center;position: relative;">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="title-box">
     <span class="title">
-      Idea创建Maven web.xml版本修改
+      springmvc-hello
     </span>
   </div>
   
@@ -648,7 +648,7 @@
       
       <div class="post-meta">
         <i class="fa fa-clock-o" aria-hidden="true"></i>
-        <span class="post-time">2021-07-13</span>
+        <span class="post-time">2021-07-14</span>
       </div>
       
       <div class="post-tags-categories">
@@ -665,48 +665,19 @@
         
       </div>
       <div class="post-content">
-        <p>一、问题描述<br>1.在使用Maven创建web工程的时候发现默认web.xml版本居然是2.4的，这个版本连EL表达式都用不了，所以很是糟心</p>
-<p>2.所以为了解决Idea创建Maven Web工程的web.xml版本问题，给大家提供了两种解决办法</p>
-<p>二、问题分析<br>1.首次创建Maven工程，会联网下载web有关的jar包，其中最重要的一个就是我们创建工程的时候选择的maven-archetype-webapp-1.3.jar这个jar包</p>
-<p>2.在IdeanMaven web项目中生成的web.xml文件就是从该jar包中拷贝出来的，所以我们要做的就是改动web.xml和此jar包</p>
-<p>三、问题解决<br>3.1 暂时解决<br>1.暂时解决方法只能解决当前项目，新建一个项目还会出现这个问题</p>
-<p>2.要做的就是将项目的web.xml头换成需要的版本，比如我换成4.0版本</p>
-<p>将需要的版本头替换原来的2.4版本头</p>
-<p>需要4.0头的可以直接在这里复制<br><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code><br>一、问题描述<br>1.在使用Maven创建web工程的时候发现默认web.xml版本居然是2.4的，这个版本连EL表达式都用不了，所以很是糟心</p>
-<p>2.所以为了解决Idea创建Maven Web工程的web.xml版本问题，给大家提供了两种解决办法</p>
-<p>二、问题分析<br>1.首次创建Maven工程，会联网下载web有关的jar包，其中最重要的一个就是我们创建工程的时候选择的maven-archetype-webapp-1.3.jar这个jar包</p>
-<p>2.在IdeanMaven web项目中生成的web.xml文件就是从该jar包中拷贝出来的，所以我们要做的就是改动web.xml和此jar包</p>
-<p>三、问题解决<br>3.1 暂时解决<br>1.暂时解决方法只能解决当前项目，新建一个项目还会出现这个问题</p>
-<p>2.要做的就是将项目的web.xml头换成需要的版本，比如我换成4.0版本</p>
-<p>将需要的版本头替换原来的2.4版本头</p>
-<p>需要4.0头的可以直接在这里复制<br><code>&lt;?xm</code>l version=”1.0” encoding=”UTF-8”?&gt;<code> </code><web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">`</p>
-<p></web-app>`</p>
-<p>3.不建议随便粘贴一个头替换原来的web.xml头，最好是根据自己的服务器如Tomcat的版本来替换，推荐从Tomcat服务器中的web.xml中把头部分粘贴过来进行替换或者直接将web.xml文件拷贝过来替换为原来的web.xml，图示</p>
-<p><img "" class="lazyload placeholder" data-original="https://img-blog.csdn.net/20180929115020828?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0MTA0NDQ2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
-<p>在Tomcat安装目录下的webapp/ROOT/WEB-INF中有我们需要的web.xml</p>
-<p>把不需要的部分删除，就可以得到我们需要的部分，也可以不删除，没什么影响<br><code>&lt;?xm</code>l version=”1.0” encoding=”UTF-8”?&gt;<code> </code><web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">`</p>
-<p></web-app>`<br>4.重启Idea 的服务器，如Tomcat，问题解决</p>
-<p>3.2 永久解决<br>1.上述方法只能解决一个项目问题，但是我们并不想每次创建web项目都要像上面一样，很麻烦，所以我们这里永久性解决</p>
-<p>2.我们创建web项目的时候发现使用:分隔了一个路径和jar包名称，前者其实就是Maven仓库坐标，后者就是web项目核心jar包</p>
-<p><img "" class="lazyload placeholder" data-original="https://img-blog.csdn.net/20180929114026590?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0MTA0NDQ2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
-<p>3.根据提供的坐标（路径）找到maven-archetype-webapp这个jar包</p>
-<p>我的路径：d:\maven\MavenRepository.m2\repository\org\apache\maven\archetypes\maven-archetype-webapp\1.3\</p>
-<p><img "" class="lazyload placeholder" data-original="https://img-blog.csdn.net/2018092911560257?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0MTA0NDQ2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
-<p>4.我们使用压缩软件打开这个jar包，注意是打开而不是解压，如使用2345好压打开，依次进入以下路径到WEB-INF目录中就可以看到有一个web.xml文件</p>
-<p>选择打开</p>
-<p>依次进入maven-archetype-webapp-1.3.jar\archetype-resources\src\main\webapp\WEB-INF目录中，找到web.xml</p>
-<p><img "" class="lazyload placeholder" data-original="https://img-blog.csdn.net/20180929122357890?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0MTA0NDQ2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
-<p><img "" class="lazyload placeholder" data-original="https://img-blog.csdn.net/20180929115741389?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0MTA0NDQ2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
-<p>5.双击打开，注意不是解压！将此web.xml的头内容替换为我们需要的头信息（也可以直接删除这个web.xml，然后直接从Tomcat安装目录下的webapp/ROOT/WEB-INF中将web.xml给复制过来替换原来的web.xml），两种方式都行</p>
-<p><img "" class="lazyload placeholder" data-original="https://img-blog.csdn.net/20180929115849701?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM0MTA0NDQ2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="img"></p>
-<p>6.修改完成，保存，然后关闭打开的文件，这个时候压缩软件会提示信息已经改变，是否重新压缩，选择是，修改完成</p>
-<p>7.重新创建web工程，出现的web.xml就是我们刚刚修改的web.xml</p>
+        <h3 id="配置tomcat，修改idea控制台乱码"><a href="#配置tomcat，修改idea控制台乱码" class="headerlink" title="配置tomcat，修改idea控制台乱码"></a>配置tomcat，修改idea控制台乱码</h3><ol>
+<li><code>首先要分清是tomcat日志编码，与idea的日志显示控制台编码</code></li>
+<li><code>tomcat日志编码：cmd内 &quot;cd /d tomcat根目录&quot; &quot;bin\catalina.bat run&quot; 运行，&quot;chcp65001&quot;切换cmd为utf8，&quot;chcp 936&quot;切换cmd为gbk，确定tomcat日志编码，一般因为tomcat/conf/logging.properties java.util.logging.ConsoleHandler.encoding = UTF-8已设置为utf8</code></li>
+<li><code>idea显示编码：windows默认用gbk所以idea显示默认为gbk编码，【一定】在 Help-- custom vm options 添加-Dfile.encoding=UTF-8，强制为utf8编码显示，不要自己改.vmoptions可能位置不对，idea会在用户目录复制一个</code></li>
+<li><code>【切忌】自己改tomcat的logging.properties 为GBk 会导致调试时get/post参数乱码</code></li>
+</ol>
+<h3 id="web-xml的配置"><a href="#web-xml的配置" class="headerlink" title="web.xml的配置"></a>web.xml的配置</h3><p><img "" class="lazyload placeholder" data-original="https://magickio.oss-cn-shenzhen.aliyuncs.com/img/20210714220033.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;4.0&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--            springmvc配置文件的属性--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--            指定springmvc配置文件位置--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springmvc.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        服务器启动时创建对象，值越小优先级越高--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="springmvc-xml"><a href="#springmvc-xml" class="headerlink" title="springmvc.xml"></a>springmvc.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--    包扫描路径--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.yts.controller&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--    视图解析器，拼装链接的前后--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;prefix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;/WEB-INF/pages/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;suffix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;.jsp&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yts.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFirstController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(value = &quot;/hello&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">myfirstrequst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       </div>
       
@@ -717,7 +688,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2021/07/13/Idea创建Maven-web-xml版本修改/" target="_blank" title="Idea创建Maven web.xml版本修改">http://example.com/2021/07/13/Idea创建Maven-web-xml版本修改/</a>
+    <a href="/2021/07/14/springmvc-hello/" target="_blank" title="springmvc-hello">http://example.com/2021/07/14/springmvc-hello/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -735,39 +706,20 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/10.jpg" style="background-size: cover; 
-      background-position: center center;">
-    </div>
-    <a href="/2021/07/14/springmvc-hello/" class="post-nav-link">
-      <div class="title">
-        <i class="fa fa-angle-left"></i> Prev:
-        <div>springmvc-hello</div>
-      </div>
-      
-      <!-- <div class="content">
-        配置tomcat，修改idea控制台乱码
-首先要分清是tomcat日志编码，与idea的日志显示控制台编码
-tomcat
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/14.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/06/18/Java8%E5%B8%B8%E7%94%A8API/" class="post-nav-link">
+    <a href="/2021/07/13/Idea%E5%88%9B%E5%BB%BAMaven-web-xml%E7%89%88%E6%9C%AC%E4%BF%AE%E6%94%B9/" class="post-nav-link">
       <div class="title">
         Next: <i class="fa fa-angle-right"></i>
-        <div>Java8常用API</div>
+        <div>Idea创建Maven web.xml版本修改</div>
       </div>
       <!-- <div class="content">
-        📘 Lambda表达式1. Lambda 表达式演示一般的匿名类:12345678//Runnable匿名内部类Run
+        一、问题描述1.在使用Maven创建web工程的时候发现默认web.xml版本居然是2.4的，这个版本连EL表达式都用不
       </div> -->
     </a>
   </div>
