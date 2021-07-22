@@ -8,7 +8,7 @@
       <link href="/2021/07/22/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3%E6%9C%89%E5%A4%9A%E4%B8%AA%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95%E5%8D%B4%E4%B8%8D%E6%8A%A5%E9%94%99%E7%9A%84%E5%8E%9F%E5%9B%A0/"/>
       <url>/2021/07/22/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3%E6%9C%89%E5%A4%9A%E4%B8%AA%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95%E5%8D%B4%E4%B8%8D%E6%8A%A5%E9%94%99%E7%9A%84%E5%8E%9F%E5%9B%A0/</url>
       
-        <content type="html"><![CDATA[<p>函数式接口有多个抽象方法却不报错的原因<br>比如在Consumer接口中，如图</p><p><img "" class="lazyload placeholder" data-original="https://magickio.oss-cn-shenzhen.aliyuncs.com/img/20210722233754.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p><p>在以下几种情况下，接口不会把其当作是抽象方法，从而符合函数式接口的定义。</p><p>所接口中所定义的方法式默认方法，使用default修饰，有其默认实现。<br>方法是静态方法，因为静态方法不能是抽象方法，而是一个已经实现了的方法。<br>方法是继承来自 Object 类的public方法，因为任何一个接口或类都继承了 Object 的方法</p>]]></content>
+        <content type="html"><![CDATA[<p>函数式接口有多个抽象方法却不报错的原因<br>比如在Consumer接口中，如图</p><p><img "" class="lazyload placeholder" data-original="https://magickio.oss-cn-shenzhen.aliyuncs.com/img/20210722233754.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p><p>在以下几种情况下，接口不会把其当作是抽象方法，从而符合函数式接口的定义。</p><ul><li>所接口中所定义的方法式默认方法，使用default修饰，有其默认实现。</li><li>方法是静态方法，因为静态方法不能是抽象方法，而是一个已经实现了的方法。</li><li>方法是继承来自 Object 类的public方法，因为任何一个接口或类都继承了 Object 的方法</li></ul>]]></content>
       
       
       

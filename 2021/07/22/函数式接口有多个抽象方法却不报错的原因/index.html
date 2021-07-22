@@ -668,7 +668,11 @@
         <p>函数式接口有多个抽象方法却不报错的原因<br>比如在Consumer接口中，如图</p>
 <p><img "" class="lazyload placeholder" data-original="https://magickio.oss-cn-shenzhen.aliyuncs.com/img/20210722233754.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="在这里插入图片描述"></p>
 <p>在以下几种情况下，接口不会把其当作是抽象方法，从而符合函数式接口的定义。</p>
-<p>所接口中所定义的方法式默认方法，使用default修饰，有其默认实现。<br>方法是静态方法，因为静态方法不能是抽象方法，而是一个已经实现了的方法。<br>方法是继承来自 Object 类的public方法，因为任何一个接口或类都继承了 Object 的方法</p>
+<ul>
+<li>所接口中所定义的方法式默认方法，使用default修饰，有其默认实现。</li>
+<li>方法是静态方法，因为静态方法不能是抽象方法，而是一个已经实现了的方法。</li>
+<li>方法是继承来自 Object 类的public方法，因为任何一个接口或类都继承了 Object 的方法</li>
+</ul>
 
       </div>
       
